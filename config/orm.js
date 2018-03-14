@@ -1,8 +1,10 @@
-const con = require('./connection');
+const connect = require('./connection');
 
 module.exports = {    
     
     selectAll: function(table,callback){
+
+        let con = connect.connect();
 
         con.query("SELECT * FROM ??",table,(err,res)=>{
 
@@ -11,9 +13,13 @@ module.exports = {
 
         });
 
+        con.end();
+
     },
 
     updateOne: function(table,item,field,callback){
+
+        let con = connect.connect();
 
         con.query("UPDATE ?? SET ? WHERE ?",[table,field,item],(err,res)=>{
             
@@ -22,9 +28,13 @@ module.exports = {
 
         });
 
+        con.end();
+
     },
 
     insertOne: function(table,id,callback){
+
+        let con = connect.connect();
 
         con.query("INSERT INTO ?? SET ?",[table,item],(err,res)=>{
             
@@ -33,6 +43,8 @@ module.exports = {
             callback(true);
 
         });
+
+        con.end();
 
     }
 

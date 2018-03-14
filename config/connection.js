@@ -10,6 +10,12 @@ const connection = {
     
 }
 
-module.exports = mysql.createConnection(connection);
+function connect(){
+    return mysql.createConnection(connection);
+}
+
+module.exports = {
+    connect: connect
+};
 
 

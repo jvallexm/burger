@@ -17,7 +17,24 @@ app.set("view engine", "handlebars");
 
 
 app.get("/",(req,res)=>{
-    res.render("index",{hot: "poppers"});
+    burger.getAll((r)=>{
+        let ready = [];
+        let eaten = [];
+        r.forEach(r=>{
+            if(r.devoured === 0)
+                ready.push(r);
+            else
+                eaten.push(r);
+        });
+        res.render("index",{
+            ready: ready,
+            eaten: eaten
+        });
+    });
+});
+
+app.update("/",(req,res)=>{
+
 });
 
 app.get('/test',(req,res)=>{

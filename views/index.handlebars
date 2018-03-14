@@ -3,7 +3,7 @@
 
 <header class="text-center container-fluid">
   <h1>Eat Da Burger</h1>  
-  <h4> "Yeah Baby, That's The Name!®" </h4>
+  <h4> "Yeah Baby, That's The Name! ®"</h4>
 </header>
 
 <section class="text-center container-fluid">
@@ -12,26 +12,28 @@
              <div class="menu">
                   <h3>Now Serving</h3>
                   <div id="serving" class="text-center container-fluid">
+                  {{#each ready}}
                   <div class="row">
                      <div class="col-sm-10">
-                       <h5>Rest in Peas Burger</h5>
+                       <h5>{{this.burger_name}}</h5>
                      </div>
                      <div class="col-sm-2">
-                       <button class="btn btn-smash"> Smash </button>
+                       <button id={{this.id}} class="btn btn-smash"> Smash </button>
                      </div>
                   </div>
+                  {{/each}}
                  </div>
             </div>
         </div>
         <div class="col-md-6">
              <div class="menu">
                   <h3>Burger Graveyard</h3>
+                  {{#each eaten}}
                   <div class="ded">
-                      Rest in Peas Burger
+                      {{this.burger_name}}
                   </div>
-                   <div class="ded">
-                      Rest in Peas Burger
-                  </div>
+                  {{/each}}
+
             </div>
         </div>
    </div>
