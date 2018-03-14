@@ -17,23 +17,31 @@ app.set("view engine", "handlebars");
 
 
 app.get("/",(req,res)=>{
+
     burger.getAll((r)=>{
+
         let ready = [];
         let eaten = [];
+
         r.forEach(r=>{
             if(r.devoured === 0)
                 ready.push(r);
             else
                 eaten.push(r);
         });
+
         res.render("index",{
             ready: ready,
             eaten: eaten
         });
+
     });
+
 });
 
-app.update("/",(req,res)=>{
+app.post("/",(req,res)=>{
+
+    let newObj = req.body;
 
 });
 
