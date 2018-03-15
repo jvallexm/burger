@@ -7,7 +7,18 @@ $(document).ready(function(){
 
     });
 
-    $("form").on("submit",function(){
+    $("form").on("submit",function(e){
+
+        e.preventDefault();
+        
+        $.post("/new",{
+            
+            burger_name: $("#burger").val().trim()
+        }).done((r)=>{
+
+            location.reload();
+            
+        });
 
     });
 

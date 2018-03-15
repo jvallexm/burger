@@ -32,7 +32,7 @@ module.exports = {
 
     },
 
-    insertOne: function(table,id,callback){
+    insertOne: function(table,item,callback){
 
         let con = connect.connect();
 

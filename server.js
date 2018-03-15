@@ -39,10 +39,16 @@ app.get("/",(req,res)=>{
 
 });
 
-app.post("/",(req,res)=>{
+app.post("/new",(req,res)=>{
 
     let newObj = req.body;
+    console.log(req.body);
 
+    burger.makeIt(req.body,(r)=>{
+        console.log("the experience is consummated");
+        res.send("reload!!");
+    })
+    
 });
 
 app.get('/test',(req,res)=>{
