@@ -2,9 +2,9 @@ const orm        = require(`../config/orm.js`);
 
 module.exports = {
     
-    eatIt: function(id,callback){
+    eatIt: function(obj,callback){
 
-        orm.updateOne("burgers",{id: id},{devoured: 1},(r)=>{
+        orm.updateOne("burgers",obj,{devoured: 1},(r)=>{
             callback(r);
         });
 

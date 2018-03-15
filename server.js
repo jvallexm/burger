@@ -51,6 +51,15 @@ app.post("/new",(req,res)=>{
     
 });
 
+app.post("/smash",(req,res)=>{
+
+    let obj = {id: parseInt(req.body.id)};
+    burger.eatIt(obj,(r)=>{
+        res.send("relod!!");
+    });
+
+});
+
 app.get('/test',(req,res)=>{
     res.sendFile( path.join(__dirname + `/public/test.html`));
 });

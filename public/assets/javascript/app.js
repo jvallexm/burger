@@ -4,6 +4,11 @@ $(document).ready(function(){
     $("body").on("click",".smash",function(){
 
         console.log("trying to smash " + this.id);
+        $.post("/smash",{
+            id: this.id
+        }).done((r)=>{
+            location.reload();
+        });
 
     });
 
@@ -17,7 +22,7 @@ $(document).ready(function(){
         }).done((r)=>{
 
             location.reload();
-            
+
         });
 
     });
