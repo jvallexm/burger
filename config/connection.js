@@ -11,7 +11,11 @@ const connection = {
 }
 
 function connect(){
-    return mysql.createConnection(connection);
+
+    if(process.env.JAWSDB_URL)
+        return mysql.createConnection(process.env.JAWSDB_URL);
+    else
+        return mysql.createConnection(connection);
 }
 
 module.exports = {
